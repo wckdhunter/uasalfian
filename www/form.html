@@ -6,20 +6,23 @@
     <script type="text/javascript" src="js/geturi.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var id = decodeURI(getUrlVars()["id"]);
-        var title = decodeURI(getUrlVars()["title"]);
-        var duration = decodeURI(getUrlVars()["duration"]);
-        var price = decodeURI(getUrlVars()["price"]);
-        $("#id").val(id);
-        $("#title").val(title);
-        $("#duration").val(duration);
-        $("#price").val(price);
+        var id_makanan = decodeURI(getUrlVars()["id_makanan"]);
+        var nama_makanan = decodeURI(getUrlVars()["nama_makanan"]);
+        var harga = decodeURI(getUrlVars()["harga"]);
+        var stok = decodeURI(getUrlVars()["stok"]);
+        var id_penjual = decodeURI(getUrlVars()["id_penjual"]);
+        $("#id_makanan").val(id_makanan);
+        $("#nama_makanan").val(nama_makanan);
+        $("#harga").val(harga);
+        $("#stok").val(stok);
+        $("#id_penjual").val(id_penjual);
         $("#update").click(function() {
-            var id = $("#id").val();
-            var title = $("#title").val();
-            var duration = $("#duration").val();
-            var price = $("#price").val();
-            var dataString = "id=" + id + "&title=" + title + "&duration=" + duration + "&price=" + price + "&update=";
+            var id_makanan = $("#id_makanan").val();
+            var nama_makanan = $("#nama_makanan").val();
+            var harga = $("#harga").val();
+            var stok = $("#stok").val();
+            var id_penjual = $("#id_penjual").val();
+            var dataString = "id_makanan=" + id_makanan + "&nama_makanan=" + nama_makanan + "&harga=" + harga + "&stok=" + stok + "&id_penjual=" + id_penjual + "&update=";
             $.ajax({
                 type: "POST",
                 url: "https://turreted-worries.000webhostapp.com/appcordova/www/update.php",
@@ -41,8 +44,8 @@
 
         });
         $("#delete").click(function() {
-            var id = $("#id").val();
-            var dataString = "id=" + id + "&delete=";
+            var id_makanan = $("#id_makanan").val();
+            var dataString = "id_makanan=" + id_makanan + "&delete=";
             $.ajax({
                 type: "GET",
                 url: "https://turreted-worries.000webhostapp.com/appcordova/www/delete.php",
@@ -76,18 +79,22 @@
     <br/>
     <br/>
     <div class="list">
-        <input type="hidden" id="id" value="" />
+        <input type="hidden" id="id_makanan" value="" />
         <div class="item">
-            <label>Title</label>
-            <input type="text" id="title" value="" />
+            <label>Nama Makanan</label>
+            <input type="text" id="nama_makanan" value="" />
         </div>
         <div class="item">
-            <label>Duration</label>
-            <input type="text" id="duration" value="" />
+            <label>Harga</label>
+            <input type="text" id="harga" value="" />
         </div>
         <div class="item">
-            <label>Price</label>
-            <input type="text" id="price" value="" />
+            <label>Stok</label>
+            <input type="text" id="stok" value="" />
+        </div>
+        <div class="item">
+            <label>ID Penjual</label>
+            <input type="text" id="id_penjual" value="" />
         </div>
         <div class="item">
             <input type="button" id="update" class="button button-block" value="Update" />

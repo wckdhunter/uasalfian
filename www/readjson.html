@@ -9,11 +9,12 @@
         $.getJSON(url, function(result) {
             console.log(result);
             $.each(result, function(i, field) {
-                var id = field.id;
-                var title = field.title;
-                var duration = field.duration;
-                var price = field.price;
-                $("#listview").append("<a class='item' href='form.html?id=" + id + "&title=" + title + "&duration=" + duration + "&price=" + price + "'><span class='item-note'>$" + price + "</span><h2>" + title + " </h2><p>" + duration + "</p></a>");
+                var id_makanan = field.id_makanan;
+                var nama_makanan = field.nama_makanan;
+                var harga = field.harga;
+                var stok = field.stok;
+                var id_penjual = field.id_penjual;
+                $("#listview").append("<a class='item' href='form.html?id_makanan=" + id_makanan + "&nama_makanan=" + nama_makanan + "&harga=" + harga + "&stok=" + stok + "&id_penjual=" + id_penjual + "'><span class='item-note'>$" + id_penjual + "</span><h2>" + nama_makanan + " </h2><h3>" + harga + " </h3><p>" + stok + "</p></a>");
             });
         });
     });

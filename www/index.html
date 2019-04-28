@@ -6,11 +6,12 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#insert").click(function() {
-            var title = $("#title").val();
-            var duration = $("#duration").val();
-            var price = $("#price").val();
-            var dataString = "title=" + title + "&duration=" + duration + "&price=" + price + "&insert=";
-            if ($.trim(title).length > 0 & $.trim(duration).length > 0 & $.trim(price).length > 0) {
+            var nama_makanan = $("#nama_makanan").val();
+            var harga = $("#harga").val();
+            var stok = $("#stok").val();
+            var id_penjual = $("#id_penjual").val();
+            var dataString = "nama_makanan=" + nama_makanan + "&harga=" + harga + "&stok=" + stok + "&id_penjual=" + id_penjual + "&insert=";
+            if ($.trim(nama_makanan).length > 0 & $.trim(harga).length > 0 & $.trim(stok).length > 0 & $.trim(id_penjual).length > 0) {
                 $.ajax({
                     type: "POST",
                     url: "https://turreted-worries.000webhostapp.com/appcordova/www/insert.php",
@@ -44,18 +45,22 @@
     <br/>
     <br/>
     <div class="list">
-        <input type="hidden" id="id" value="" />
+        <input type="hidden" id="id_makanan" value="" />
         <div class="item">
-            <label>Title</label>
-            <input type="text" id="title" value="" />
+            <label>Nama Makanan</label>
+            <input type="text" id="nama_makanan" value="" />
         </div>
         <div class="item">
-            <label>Duration</label>
-            <input type="text" id="duration" value="" />
+            <label>Harga</label>
+            <input type="text" id="harga" value="" />
         </div>
         <div class="item">
-            <label>Price</label>
-            <input type="text" id="price" value="" />
+            <label>Stok</label>
+            <input type="text" id="stok" value="" />
+        </div>
+        <div class="item">
+            <label>ID Penjual</label>
+            <input type="text" id="id_penjua" value="" />
         </div>
         <div class="item">
             <input type="button" id="insert" class="button button-block" value="Insert" />

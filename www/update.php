@@ -2,7 +2,7 @@
  include "db.php";
  if(isset($_POST['update']))
  {
- $id_makanan=$_POST['id_makanan']; 
+ $id_makanan=$_POST['id_makanan'];
  $nama_makanan=$_POST['nama_makanan'];
  $harga=$_POST['harga'];
  $stok=$_POST['stok'];

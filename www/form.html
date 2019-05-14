@@ -1,31 +1,37 @@
 <html>
 
 <head>
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
     <link rel="stylesheet" type="text/css" href="css/ionic.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/geturi.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var id_makanan = decodeURI(getUrlVars()["id_makanan"]);
-        var nama_makanan = decodeURI(getUrlVars()["nama_makanan"]);
-        var harga = decodeURI(getUrlVars()["harga"]);
-        var stok = decodeURI(getUrlVars()["stok"]);
+        var nama_penjual = decodeURI(getUrlVars()["nama_penjual"]);
+        var nama_warung = decodeURI(getUrlVars()["nama_warung"]);
+        var nohp = decodeURI(getUrlVars()["nohp"]);
         var id_penjual = decodeURI(getUrlVars()["id_penjual"]);
         $("#id_makanan").val(id_makanan);
-        $("#nama_makanan").val(nama_makanan);
-        $("#harga").val(harga);
-        $("#stok").val(stok);
+        $("#nama_penjual").val(nama_penjual);
+        $("#nama_warung").val(nama_warung);
+        $("#nohp").val(nohp);
         $("#id_penjual").val(id_penjual);
         $("#update").click(function() {
             var id_makanan = $("#id_makanan").val();
-            var nama_makanan = $("#nama_makanan").val();
-            var harga = $("#harga").val();
-            var stok = $("#stok").val();
+            var nama_penjual = $("#nama_penjual").val();
+            var nama_warung = $("#nama_warung").val();
+            var nohp = $("#nohp").val();
             var id_penjual = $("#id_penjual").val();
-            var dataString = "id_makanan=" + id_makanan + "&nama_makanan=" + nama_makanan + "&harga=" + harga + "&stok=" + stok + "&id_penjual=" + id_penjual + "&update=";
+            var dataString = "id_makanan=" + id_makanan + "&nama_penjual=" + nama_penjual + "&nama_warung=" + nama_warung + "&nohp=" + nohp + "&id_penjual=" + id_penjual + "&update=";
             $.ajax({
                 type: "POST",
-                url: "https://turreted-worries.000webhostapp.com/appcordova/www/update.php",
+                url: "https://alfian99.000webhostapp.com/appcordova/www/update.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -44,11 +50,11 @@
 
         });
         $("#delete").click(function() {
-            var id_makanan = $("#id_makanan").val();
-            var dataString = "id_makanan=" + id_makanan + "&delete=";
+            var id_penjual = $("#id_penjual").val();
+            var dataString = "id_penjual=" + id_penjual + "&delete=";
             $.ajax({
                 type: "GET",
-                url: "https://turreted-worries.000webhostapp.com/appcordova/www/delete.php",
+                url: "https://alfian99.000webhostapp.com/appcordova/www/delete.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -68,38 +74,60 @@
         });
     });
     </script>
+    <style>
+        .button-flat {
+        	border: 1px solid #16a085;        /* border: tebal[px] tipe[solid,dashed,dotted] warna[#hex, rgb()]; */
+        	background-color: #16a085;        /* ubah warna background */
+        	color: #FFFFFF;                   /* ubah warna font */
+        	font-size: 16px;                  /* ubah ukuran font */
+        	padding: 0.5em 1em 0.5em 1em;     /* padding: top right bottom left; */
+        }
+        .button-flat:hover {
+        	opacity: 0.8;                     /* ubah tingkat transparansi saat cursor menuju button. 0.0 s.d 1.0 */
+        }
+        .button-flat:active {
+        	background: #2ab59a;              /* ubah background saat button ditekan */
+        }
+    </style>
 </head>
 
 <body>
-    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px; background-color: #16a085">
         <a href="index.html" class="button button-clear">Home</a>
-        <h1 class="title">Update Database</h1>
+        <h1 class="title">Update Data Penjual</h1>
         <a class="button button-clear" href="readjson.html">Read JSON</a>
     </div>
     <br/>
     <br/>
+    <br/>
+    <br/>
+    <div class="container">
     <div class="list">
         <input type="hidden" id="id_makanan" value="" />
-        <div class="item">
+        <div class="">
             <label>Nama Makanan</label>
-            <input type="text" id="nama_makanan" value="" />
+            <input type="text" id="nama_penjual" value="" />
         </div>
-        <div class="item">
-            <label>Harga</label>
-            <input type="text" id="harga" value="" />
+        <div class="">
+            <label>nama_warung</label>
+            <input type="text" id="nama_warung" value="" />
         </div>
-        <div class="item">
-            <label>Stok</label>
-            <input type="text" id="stok" value="" />
+        <div class="">
+            <label>nohp</label>
+            <input type="text" id="nohp" value="" />
         </div>
-        <div class="item">
+        <div class="">
             <label>ID Penjual</label>
             <input type="text" id="id_penjual" value="" />
         </div>
-        <div class="item">
-            <input type="button" id="update" class="button button-block" value="Update" />
-            <input type="button" id="delete" class="button button-block" value="Delete" />
+        <br><br>
+        <div class=""><center>
+            <input type="button" id="update" class="button-flat" value="Update" />
+            <br><br>
+            <input type="button" id="delete" class="button-flat" value="Delete" />
+            </center>
         </div>
+    </div>
     </div>
 </body>
 

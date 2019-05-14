@@ -3,11 +3,11 @@
  if(isset($_POST['update']))
  {
  $id_makanan=$_POST['id_makanan'];
- $nama_makanan=$_POST['nama_makanan'];
- $harga=$_POST['harga'];
- $stok=$_POST['stok'];
+ $nama_penjual=$_POST['nama_penjual'];
+ $nama_warung=$_POST['nama_warung'];
+ $nohp=$_POST['nohp'];
  $id_penjual=$_POST['id_penjual'];
- $q=mysqli_query($con,"UPDATE `makanan` SET `nama_makanan`='$nama_makanan',`harga`='$harga',`stok`='$stok',`id_penjual`='$id_penjual' where `id_makanan`='$id_makanan'");
+ $q=mysqli_query($con,"UPDATE `penjual` SET `nama_penjual`='$nama_penjual',`nama_warung`='$nama_warung',`nohp`='$nohp',`id_penjual`='$id_penjual' where `id_penjual`='$id_penjual'");
  if($q)
  echo "success";
  else

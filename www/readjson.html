@@ -5,16 +5,16 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var url = "https://alfian99.000webhostapp.com/appcordova/www/json.php";
+        var url = "https://turreted-worries.000webhostapp.com/appcordova/www/json.php";
         $.getJSON(url, function(result) {
             console.log(result);
             $.each(result, function(i, field) {
                 var id_makanan = field.id_makanan;
-                var nama_penjual = field.nama_penjual;
-                var nama_warung = field.nama_warung;
-                var nohp = field.nohp;
+                var nama_makanan = field.nama_makanan;
+                var harga = field.harga;
+                var stok = field.stok;
                 var id_penjual = field.id_penjual;
-                $("#listview").append("<a class='item' href='form.html?id_makanan=" + id_makanan + "&nama_penjual=" + nama_penjual + "&nama_warung=" + nama_warung + "&nohp=" + nohp + "&id_penjual=" + id_penjual + "'><h2>" + nama_penjual + " </h2><h2>" + nama_warung + " </h2><h2>" + nohp + "</h2><h2>" + id_penjual + "</h2></a>");
+                $("#listview").append("<a class='item' href='form.html?id_makanan=" + id_makanan + "&nama_makanan=" + nama_makanan + "&harga=" + harga + "&stok=" + stok + "&id_penjual=" + id_penjual + "'><h2>" + nama_makanan + " </h2><h2>" + harga + " </h2><h2>" + stok + "</h2><h2>" + id_penjual + "</h2></a>");
             });
         });
     });
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="bar bar-header bar-positive" style="margin-bottom:80px; background-color: #16a085">
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
         <a href="index.html" class="button button-clear">Home</a>
         <h1 class="title">Read Database (JSON)</h1>
     </div>
